@@ -41,6 +41,8 @@ def check_color_balance(indexes):
     nucleotide_counts = {nuc: np.count_nonzero(index_matrix == nuc, axis=0) for nuc in "ATCG"}
     df = pd.DataFrame(nucleotide_counts)
     df = df.div(df.sum(axis=1), axis=0) * 100  
+
+    df.index = df.index+1
     return df
 
 if uploaded_file:
